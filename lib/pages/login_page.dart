@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class loginPage extends StatelessWidget {
+class loginPage extends StatefulWidget {
   const loginPage({super.key});
 
+  @override
+  State<loginPage> createState() => _loginPageState();
+}
+
+class _loginPageState extends State<loginPage> {
+  String name = "";
+  bool changeButton = false;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -15,7 +22,7 @@ class loginPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           SizedBox(height: 20.0),
-          Text("Welcome",
+          Text("Welcome $name",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -27,12 +34,17 @@ class loginPage extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Enter username",
-                    labelText: "Username",
+                    decoration: InputDecoration(
+                      hintText: "Enter username",
+                      labelText: "Username",
+                    ),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    }
                     // labelStyle: TextStyle(color: Colors.black)
-                  ),
-                ),
+
+                    ),
                 TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -45,15 +57,46 @@ class loginPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20.0),
-          ElevatedButton(
-            child: Text("Login"),
-            style: TextButton.styleFrom(
-              minimumSize: Size(150, 40),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, "/home");
+          InkWell(
+            onTap: () async {
+              setState(() {
+                changeButton = true;
+              });
+              await Future.delayed(Duration(seconds: 1));
+                Navigator.pushNamed(context, "/home");
             },
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1),
+              width: changeButton ? 50 : 150,
+              height: 50,
+              alignment: Alignment.center,
+              child: changeButton
+                  ? Icon(
+                      Icons.done,
+                      color: Colors.white,
+                    )
+                  : Text(
+                      'Login',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                color: Colors.blue,
+              ),
+            ),
           )
+          // ElevatedButton(
+          //   child: Text("Login"),
+          //   style: TextButton.styleFrom(
+          //     minimumSize: Size(150, 40),
+          //   ),
+          //   onPressed: () {
+          //     Navigator.pushNamed(context, "/home");
+          //   },
+          // )
         ]),
       ),
     );
