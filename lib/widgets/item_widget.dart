@@ -13,6 +13,11 @@ final Item item;
     leading: Image.network(item.image),
     title: Text(item.name),
     subtitle: Text(item.desc),
+    trailing: Text("\$${item.price}", style: TextStyle(
+     fontSize: 20.0,
+      color: Colors.deepPurple,
+      fontWeight: FontWeight.bold,
+    ),),
     );
   }
 }

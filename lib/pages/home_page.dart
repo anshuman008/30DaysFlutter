@@ -16,16 +16,13 @@ class HomePage extends StatelessWidget {
         title: Text('catalog App',
             style: Theme.of(context).appBarTheme.titleTextStyle),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.items[index],
-            );
-          },
-        ),
+      body: ListView.builder(
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (context, index) {
+          return ItemWidget(
+            item: CatalogModel.items[index],
+          );
+        },
       ),
       drawer: MyDrawer(),
     );
