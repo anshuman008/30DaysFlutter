@@ -1,3 +1,4 @@
+import 'package:catalog_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Container(
           child: Center(child: Text('WECOME GUYS to $days challenge'))),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
