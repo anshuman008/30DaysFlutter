@@ -10,11 +10,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('catalog App',
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 20,
-            )),
+            style: Theme.of(context).appBarTheme.titleTextStyle),
       ),
       body: Container(
           child: Center(child: Text('WECOME GUYS to $days challenge'))),
