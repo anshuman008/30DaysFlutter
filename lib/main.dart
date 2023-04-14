@@ -9,9 +9,7 @@ import 'package:catalog_app/pages/cart_page.dart';
 
 void main() {
   runApp(VxState(
-    store:MyStore(),
-
-    child: MyApp()));
+    store:MyStore(), child: MyApp()));
 }
 // learn about context in flutter 
 // there are 3 types of tree in flutter
