@@ -2,11 +2,16 @@ import 'package:catalog_app/pages/login_page.dart';
 import 'package:catalog_app/utils/route.dart';
 import 'package:catalog_app/widgets/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'core/store.dart';
 import 'pages/home_page.dart';
 import 'package:catalog_app/pages/cart_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(VxState(
+    store:MyStore(),
+
+    child: MyApp()));
 }
 // learn about context in flutter 
 // there are 3 types of tree in flutter
