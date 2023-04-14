@@ -4,7 +4,6 @@ import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.canvasColor,
@@ -12,17 +11,16 @@ class CartPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: "Cart".text.make(),
       ),
-      body: Column(
-        children:[
-          _CartList().p32().expand(),Divider(),_CartTotal(),
-        ]
-      ),
+      body: Column(children: [
+        _CartList().p32().expand(),
+        Divider(),
+        _CartTotal(),
+      ]),
     );
   }
 }
 
 class _CartTotal extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -32,12 +30,17 @@ class _CartTotal extends StatelessWidget {
         children: [
           "\$9999".text.xl5.color(context.theme.hoverColor).make(),
           30.widthBox,
-          ElevatedButton(onPressed: (){},
-           style: ButtonStyle(
-             backgroundColor: MaterialStateProperty.all(context.theme.hintColor),
-             shape: MaterialStateProperty.all(StadiumBorder())
-           ),
-           child: "Buy".text.wide.make()).w32(context)
+          ElevatedButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: "Buing not supported yet".text.make()));
+                  },
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(context.theme.hintColor),
+                      shape: MaterialStateProperty.all(StadiumBorder())),
+                  child: "Buy".text.wide.make())
+              .w32(context)
         ],
       ),
     );
@@ -45,7 +48,6 @@ class _CartTotal extends StatelessWidget {
 }
 
 class _CartList extends StatefulWidget {
-
   @override
   State<_CartList> createState() => __CartListState();
 }
@@ -54,16 +56,15 @@ class __CartListState extends State<_CartList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-itemCount: 5,
-itemBuilder: (context,index) 
-=> ListTile(
-  leading: Icon(Icons.done),
-  trailing: IconButton(
-    onPressed: (){},
-    icon: Icon(Icons.remove_circle_outline),
-  ),
-  title: "Item 1".text.make(),
-),
+      itemCount: 5,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.done),
+        trailing: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.remove_circle_outline),
+        ),
+        title: "Item 1".text.make(),
+      ),
     );
   }
 }
