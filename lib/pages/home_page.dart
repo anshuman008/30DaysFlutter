@@ -8,6 +8,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:catalog_app/widgets/home_widgets/catalog_header.dart';
 import 'package:catalog_app/widgets/home_widgets/catalog_list.dart';
 import 'package:catalog_app/utils/route.dart';
+import 'package:catalog_app/widgets/theme.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -40,10 +41,11 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(onPressed: (){
         Navigator.pushNamed(context, Myroute.cartRoute);
       },
-      backgroundColor: MyTheme().darkBluishColor,
-      child: Icon(CupertinoIcons.cart),
+      backgroundColor: Theme.of(context).hintColor,
+      child: Icon(CupertinoIcons.cart, color: Colors.white,),
         ),
-        backgroundColor: MyTheme().creamColor,
+        // backgroundColor: context.canvasColor,
+        backgroundColor: Theme.of(context).canvasColor,
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

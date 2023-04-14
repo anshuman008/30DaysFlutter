@@ -14,9 +14,9 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme().creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar:           Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
               alignment: MainAxisAlignment.spaceBetween,
               buttonPadding: EdgeInsets.zero,
@@ -26,7 +26,7 @@ class HomeDetailPage extends StatelessWidget {
                   onPressed: () {},
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                          MyTheme().darkBluishColor),
+                         Theme.of(context).hintColor),
                       shape: MaterialStateProperty.all(StadiumBorder())),
                   child: "Add to cart".text.make(),
                 ).wh(120, 50)
@@ -46,15 +46,15 @@ class HomeDetailPage extends StatelessWidget {
                 edge: VxEdge.TOP,
                 child: Container(
                   width: context.screenWidth,
-                  color: Colors.white,
+                  color: context.cardColor,
                   child: Column(
                     children: [
-                       catalog.name.text.xl4.color(MyTheme().darkBluishColor).bold.make(),
+                       catalog.name.text.xl4.color(Theme.of(context).hoverColor).bold.make(),
                       catalog.desc.text.xl.textStyle(context.captionStyle).make(),
                          10.heightBox,
-                        //  "Tempor. Eirmod sanctus .".text.textStyle(context.captionStyle).make().,
+                      " Sed takimata clita sit nonumy aliquyam gubergren dolor eirmod consetetur. Gubergren dolor rebum et invidunt, no ipsum duo kasd et elitr consetetur. Gubergren dolores labore eos justo nonumy ipsum. Dolor lorem ea dolor rebum ipsum. Lorem at sed aliquyam eirmod. Eos sed takimata lorem dolores et eirmod, kasd kasd sed.".text.textStyle(context.captionStyle).make().p16(),
                     ],
-                  ).py64(),
+                  ).py32(),
                 ),
               ))
           ],
